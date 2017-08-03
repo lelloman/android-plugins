@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/src/main/assets"/><source path="/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/src/debug/assets"/></dataSet></merger>

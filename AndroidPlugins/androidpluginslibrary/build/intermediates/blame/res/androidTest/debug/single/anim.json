@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_slide_in_top.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_slide_out_top.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_fade_in.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_popup_exit.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_popup_enter.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/home/lelloman/AndroidStudioProjects/android-plugins/AndroidPlugins/androidpluginslibrary/build/intermediates/res/merged/androidTest/debug/anim/abc_fade_out.xml",
+        "source": "/home/lelloman/.android/build-cache/9eda0a6b4b67a5ab3e4cfe9eec7b604fc9f49ed4/output/res/anim/abc_fade_out.xml"
+    }
+]

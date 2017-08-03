@@ -1,0 +1,4 @@
+include ':app'
+
+include ':androidpluginslibrary'
+project(':androidpluginslibrary').projectDir = new File(settingsDir, '../AndroidPlugins/androidpluginslibrary')
