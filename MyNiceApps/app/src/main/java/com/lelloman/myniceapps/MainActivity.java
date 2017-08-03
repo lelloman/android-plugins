@@ -1,10 +1,9 @@
 package com.lelloman.myniceapps;
 
-import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 
 
@@ -15,11 +14,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
-
-import dalvik.system.DexClassLoader;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,9 +29,13 @@ public class MainActivity extends AppCompatActivity {
 		ViewGroup pluginsContainer = (ViewGroup) findViewById(R.id.plugins_container);
 
 		for (String fileName : plugins) {
-			AbstractViewCreator viewCreator = extractViewCreatorFromAssetsFile(fileName);
-			if (viewCreator != null) {
-				pluginsContainer.addView(viewCreator.createView());
+			LoadedPlugin loadedPlugin = loadPlugin(fileName);
+			if (loadedPlugin != null) {
+				AbstractViewCreator viewCreator = loadedPlugin.getViewCreator();
+				if (viewCreator != null) {
+					View view = viewCreator.createView();
+					pluginsContainer.addView(view);
+				}
 			}
 		}
 	}
@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 				if (filename.endsWith(".apk")) {
 					InputStream in = assetManager.open(filename);
 					File outFile = new File(getFilesDir(), filename);
+					if(outFile.exists()){
+						outFile.delete();
+					}
 
 					OutputStream out = new FileOutputStream(outFile);
 					copyFile(in, out);
@@ -74,29 +77,13 @@ public class MainActivity extends AppCompatActivity {
 		}
 	}
 
-	private AbstractViewCreator extractViewCreatorFromAssetsFile(String assetsFileName) {
-
+	private LoadedPlugin loadPlugin(String assetsFileName) {
 		try {
-			String codeCachePath;
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-				codeCachePath = getCodeCacheDir().getAbsolutePath();
-			} else {
-				codeCachePath = getCacheDir().getAbsolutePath();
-			}
-
-			String dexPath = new File(getFilesDir(), assetsFileName).getAbsolutePath();
-
-			DexClassLoader dexClassLoader = new DexClassLoader(dexPath, codeCachePath, getFilesDir().getPath(), getClassLoader());
-
-			Class myClass = dexClassLoader.loadClass("com.lelloman." + assetsFileName.replace(".apk", "").toLowerCase() + ".MyViewCreator");
-			Constructor constructor = myClass.getConstructor(Context.class);
-			AbstractViewCreator creator = (AbstractViewCreator) constructor.newInstance(this);
-			return creator;
-
+			String apkPath = new File(getFilesDir(), assetsFileName).getAbsolutePath();
+			return new LoadedPlugin(this, apkPath);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-
-		return null;
 	}
 }
