@@ -3,12 +3,13 @@ package com.lelloman.myniceapps;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 
-import com.lelloman.androidplugins.AbstractViewCreator;
+import com.lelloman.myniceapps.plugin.LoadedPlugin;
+import com.lelloman.myniceapps.plugin.PluginLoader;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,14 +28,18 @@ public class MainActivity extends AppCompatActivity {
 		List<String> plugins = copyPlugins();
 
 		ViewGroup pluginsContainer = (ViewGroup) findViewById(R.id.plugins_container);
+		PluginLoader pluginLoader = new PluginLoader();
 
 		for (String fileName : plugins) {
-			LoadedPlugin loadedPlugin = loadPlugin(fileName);
-			if (loadedPlugin != null) {
-				AbstractViewCreator viewCreator = loadedPlugin.getViewCreator();
-				if (viewCreator != null) {
-					View view = viewCreator.createView();
-					pluginsContainer.addView(view);
+			LoadedPlugin plugin = pluginLoader.loadPlugin(this, new File(getFilesDir(), fileName).getAbsolutePath());
+			if (plugin != null) {
+				View view = plugin.createHomeCard();
+
+				if (view != null) {
+					CardView cardView = (CardView) getLayoutInflater().inflate(R.layout.card_plugin_home, null);
+					cardView.addView(view);
+
+					pluginsContainer.addView(cardView);
 				}
 			}
 		}
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 				if (filename.endsWith(".apk")) {
 					InputStream in = assetManager.open(filename);
 					File outFile = new File(getFilesDir(), filename);
-					if(outFile.exists()){
+					if (outFile.exists()) {
 						outFile.delete();
 					}
 
@@ -77,13 +82,4 @@ public class MainActivity extends AppCompatActivity {
 		}
 	}
 
-	private LoadedPlugin loadPlugin(String assetsFileName) {
-		try {
-			String apkPath = new File(getFilesDir(), assetsFileName).getAbsolutePath();
-			return new LoadedPlugin(getApplicationContext(), apkPath);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 }

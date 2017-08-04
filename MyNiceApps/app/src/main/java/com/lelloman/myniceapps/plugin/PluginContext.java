@@ -1,18 +1,11 @@
-package com.lelloman.myniceapps;
+package com.lelloman.myniceapps.plugin;
 
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.content.res.XmlResourceParser;
-import android.support.annotation.AnyRes;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
