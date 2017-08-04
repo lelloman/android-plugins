@@ -33,10 +33,12 @@ public class LoadedPlugin {
 		}
 
 		dexClassLoader = new DexClassLoader(apkPath, codeCacheDir.getAbsolutePath(), null, context.getClassLoader());
-		pluginContext = new PluginContext(baseContext, apkPath);
+		pluginContext = new PluginContext(baseContext, apkPath, dexClassLoader);
 
 		File apkFile = new File(apkPath);
-		Class myClass = dexClassLoader.loadClass("com.lelloman." + apkFile.getName().replace(".apk", "").toLowerCase() + ".MyViewCreator");
+		String apkName = apkFile.getName().replace(".apk", "").toLowerCase();
+		String viewCreatorClassName = "com.lelloman." + apkName + ".MyViewCreator";
+		Class myClass = dexClassLoader.loadClass(viewCreatorClassName);
 		Constructor constructor = myClass.getConstructor(Context.class);
 
 		viewCreator = (AbstractViewCreator) constructor.newInstance(pluginContext);

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import com.lelloman.androidplugins.AbstractViewCreator;
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
 		List<String> plugins = copyPlugins();
 
 		ViewGroup pluginsContainer = (ViewGroup) findViewById(R.id.plugins_container);
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 	private LoadedPlugin loadPlugin(String assetsFileName) {
 		try {
 			String apkPath = new File(getFilesDir(), assetsFileName).getAbsolutePath();
-			return new LoadedPlugin(this, apkPath);
+			return new LoadedPlugin(getApplicationContext(), apkPath);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
