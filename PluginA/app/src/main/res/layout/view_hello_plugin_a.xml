@@ -7,11 +7,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#aa0022"
         android:gravity="center"
         android:padding="8dp"
         android:text="@string/plugin_string"
-        android:textColor="@color/pluginAWhite"
+        android:textColor="@color/pluginARed"
         android:textSize="18dp"
         />
 </FrameLayout>
